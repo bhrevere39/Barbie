@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Diamond Quest · 30 Days to GMAT Test Day</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#3B2266; --muted:#7D6A9E; --violet:#8E5CF0; --pink:#E85BB5; --blush:#FFE4F4; --lav:#F3ECFF; --ice:#D6E6FF; --silver:#E2DCF2;
+    --q:#5B7FE8; --v:#E2508F; --di:#9B5DE5; --mix:#2FB3C6;
+    --iri:linear-gradient(135deg,#F77FC6 0%,#B57BF7 45%,#8AA9FF 100%);
+    --glass:rgba(255,255,255,.72);
+    --frame:0 0 0 1px rgba(255,255,255,.95), 0 0 0 5px rgba(214,196,255,.45), 0 14px 40px rgba(110,70,190,.18);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;color:var(--ink);font:15.5px/1.55 Nunito,system-ui,sans-serif;font-weight:600;min-height:100vh;
+    background:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.22) 0 1px, transparent 1px 46px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,.22) 0 1px, transparent 1px 46px),
+      radial-gradient(ellipse at 20% 0%, #FFD6EF 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 20%, #D8E4FF 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, #F2D4FF 0%, transparent 60%),
+      linear-gradient(180deg,#EBDDFF 0%,#F6E3F8 50%,#E6E2FF 100%);
+    background-attachment:fixed;}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px 18px 90px;position:relative;z-index:1}
+  .cinzel{font-family:Cinzel,serif}
+  .script{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:700}
+
+  .twinkle{position:fixed;pointer-events:none;z-index:0;color:#fff;text-shadow:0 0 6px #E9B8FF,0 0 14px #C9A6FF;animation:tw 3.2s ease-in-out infinite}
+  .twinkle.note{color:#B79BEF;text-shadow:0 0 8px #fff;animation:drift 9s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.2;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(30deg)}}
+  @keyframes drift{0%,100%{opacity:0;transform:translateY(20px)}30%,70%{opacity:.7}50%{transform:translateY(-20px) rotate(-8deg)}}
+
+  /* ---------- TOP ---------- */
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+  .logo{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .logo .tiara{width:40px;height:30px}
+  .logo b{font-family:Cinzel;font-weight:800;font-size:21px;letter-spacing:.08em;background:linear-gradient(90deg,#7B4FD9,#D553A9);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{background:var(--glass);backdrop-filter:blur(8px);border:1px solid #fff;border-radius:99px;padding:6px 14px;font-weight:800;font-size:13.5px;box-shadow:0 4px 14px rgba(142,92,240,.15);display:flex;align-items:center;gap:6px;white-space:nowrap;color:var(--ink)}
+  .chip b{color:var(--pink)}
+  button.chip{cursor:pointer;font:inherit;font-weight:800}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;border-radius:32px;padding:30px 30px 0;display:grid;grid-template-columns:1.05fr 1fr;gap:10px;align-items:end;color:#fff;min-height:340px;
+    background:
+      radial-gradient(circle at 75% 35%, rgba(255,255,255,.55) 0, transparent 40%),
+      linear-gradient(160deg,#6E46C9 0%,#A35BD8 38%,#E77DC0 72%,#FFC2E0 100%);
+    box-shadow:var(--frame)}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.28) 48%,transparent 60%);transform:translateX(-100%);animation:shine 6s ease-in-out infinite;pointer-events:none;z-index:2}
+  @keyframes shine{55%,100%{transform:translateX(100%)}}
+  .hero-text{padding-bottom:30px;position:relative;z-index:1}
+  .coach{display:flex;gap:12px;align-items:center}
+  .medal{width:58px;height:58px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:30px;
+    background:radial-gradient(circle at 35% 30%,#fff,#F1E7FF 60%,#D9C6FF);box-shadow:0 0 0 3px rgba(255,255,255,.9),0 0 0 6px rgba(255,255,255,.35),0 6px 16px rgba(60,20,120,.3)}
+  .bubble{background:rgba(255,255,255,.95);color:var(--ink);border-radius:18px 18px 18px 4px;padding:10px 14px;font-weight:700;font-size:14.5px;box-shadow:0 6px 16px rgba(60,20,120,.2)}
+  .hello{font-size:30px;margin:16px 0 -2px;color:#FFE9F7}
+  .hero h2{font-family:Cinzel;font-weight:800;font-size:38px;line-height:1.08;margin:0 0 6px;letter-spacing:.02em;text-shadow:0 2px 12px rgba(80,20,140,.35)}
+  .hero h2 em{font-style:normal;background:linear-gradient(180deg,#fff,#FFD3F0);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 10px rgba(255,255,255,.7))}
+  .hero .sub{color:#FFEAF7;margin:0 0 18px;font-weight:700}
+  .castle{align-self:end;position:relative;z-index:1;margin-bottom:-2px}
+  .castle svg{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 30px rgba(255,255,255,.45))}
+  .castle .spark{animation:tw 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+
+  .btn{font:inherit;font-weight:800;cursor:pointer;border:1.5px solid #DCCBFF;border-radius:99px;padding:9px 16px;background:#fff;color:var(--ink);box-shadow:0 4px 12px rgba(142,92,240,.16);transition:transform .12s, box-shadow .12s}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(142,92,240,.25)}
+  .btn:active{transform:translateY(1px)}
+  .btn.go{background:var(--iri);color:#fff;border:1.5px solid rgba(255,255,255,.9);font-size:16px;padding:12px 24px;letter-spacing:.02em;text-shadow:0 1px 2px rgba(80,30,140,.35);
+    box-shadow:0 8px 22px rgba(150,90,230,.45), inset 0 1px 0 rgba(255,255,255,.7);position:relative;overflow:hidden}
+  .btn.go::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);animation:btnshine 3.5s infinite}
+  @keyframes btnshine{60%,100%{left:130%}}
+  .hero .btn.go{background:#fff;color:var(--violet);text-shadow:none}
+  .hero .btn.go::after{background:linear-gradient(100deg,transparent,rgba(214,180,255,.7),transparent)}
+
+  /* ---------- STANDING ---------- */
+  .standing{margin-top:18px;background:var(--glass);backdrop-filter:blur(10px);border-radius:24px;padding:16px 20px;box-shadow:var(--frame);display:grid;grid-template-columns:1.4fr repeat(3,.6fr);gap:14px;align-items:center}
+  .standing small{color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:10.5px}
+  .rank{font-family:Cinzel;font-weight:700;font-size:20px;margin:1px 0 6px}
+  .xpbar{height:12px;border-radius:99px;background:#EDE5FA;overflow:hidden;box-shadow:inset 0 1px 3px rgba(80,40,140,.15)}
+  .xpbar i{display:block;height:100%;width:0;border-radius:99px;transition:width .6s cubic-bezier(.3,1.4,.5,1);
+    background:linear-gradient(90deg,#F77FC6,#B57BF7,#8AA9FF,#F77FC6);background-size:300% 100%;animation:glitter 4s linear infinite}
+  @keyframes glitter{to{background-position:-300% 0}}
+  .xptext{font-size:12.5px;color:var(--muted);margin-top:5px}
+  .stat{text-align:center;border-left:1px solid var(--silver);padding:4px 0}
+  .stat b{display:block;font-family:Cinzel;font-weight:800;font-size:26px;line-height:1.1;background:linear-gradient(180deg,#8E5CF0,#E85BB5);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ---------- SECTION HEADS ---------- */
+  .section-h{text-align:center;margin:44px 0 16px}
+  .section-h h3{margin:0;font-family:Cinzel;font-weight:700;font-size:23px;letter-spacing:.06em;color:var(--ink);display:flex;align-items:center;justify-content:center;gap:14px}
+  .section-h h3::before,.section-h h3::after{content:"";height:1px;flex:0 1 120px;background:linear-gradient(90deg,transparent,#B99CF2)}
+  .section-h h3::after{transform:scaleX(-1)}
+  .section-h span{display:block;color:var(--muted);font-size:17px;margin-top:2px}
+  .card{background:var(--glass);backdrop-filter:blur(10px);border-radius:26px;padding:22px;box-shadow:var(--frame)}
+
+  .decrees{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:14px}
+  .decree{background:var(--glass);backdrop-filter:blur(10px);border-radius:22px;padding:18px;box-shadow:var(--frame);text-align:center}
+  .decree .num{width:40px;height:40px;margin:0 auto 8px;display:grid;place-items:center;font-family:Cinzel;font-weight:800;color:#fff;background:var(--iri);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+  .decree b{display:block;font-family:Cinzel;font-size:15px;letter-spacing:.03em;margin-bottom:4px}
+  .decree p{margin:0;font-size:13.5px;color:var(--muted);font-weight:600}
+
+  /* ---------- JEWELS ---------- */
+  .badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:12px}
+  .badge{background:rgba(255,255,255,.45);border:1px dashed #CDBDF0;border-radius:20px;padding:14px 6px 12px;text-align:center;font-size:12px;font-weight:800;line-height:1.2;color:var(--muted);transition:transform .2s}
+  .badge .e{font-size:28px;width:52px;height:52px;margin:0 auto 6px;border-radius:50%;display:grid;place-items:center;background:#EFEAF7;filter:grayscale(1);opacity:.45}
+  .badge small{display:block;font-weight:600;font-size:10.5px;margin-top:3px}
+  .badge.on{background:#fff;border:1px solid #fff;color:var(--ink);box-shadow:var(--frame)}
+  .badge.on .e{filter:none;opacity:1;background:radial-gradient(circle at 35% 30%,#fff,#F5EBFF 55%,#E3CCFF);box-shadow:0 0 0 2px #fff,0 0 14px rgba(200,150,255,.8)}
+  .badge:hover{transform:translateY(-3px)}
+
+  /* ---------- LEDGER ---------- */
+  .ledger-top{display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:start}
+  .leak{background:linear-gradient(135deg,#FFE6F5,#EDE3FF 60%,#E2ECFF);border-radius:20px;padding:18px;border:1px solid #fff}
+  .leak small{font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:10.5px}
+  .leak .big{font-family:Cinzel;font-weight:700;font-size:18px;margin:6px 0 8px;line-height:1.3}
+  .leak p{margin:0;font-size:13.5px;color:var(--muted)}
+  .bars{display:grid;gap:7px}
+  .barrow{display:grid;grid-template-columns:150px 1fr 26px;gap:8px;align-items:center;font-size:13px;font-weight:700}
+  .barrow .track{height:10px;background:#EEE7FA;border-radius:99px;overflow:hidden}
+  .barrow .track i{display:block;height:100%;border-radius:99px;background:var(--iri)}
+  .barrow b{text-align:right;color:var(--violet)}
+  .lbl{display:block;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:14px 0 6px}
+  .ledger-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:20px 0 12px}
+  .ledger-tools select{width:auto}
+  .entries{display:grid;gap:8px}
+  .entry{background:#fff;border:1px solid #EDE4FB;border-radius:16px;padding:11px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 10px}
+  .entry .head{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;font-weight:800}
+  .pill{border-radius:99px;padding:2px 10px;color:#fff;font-size:11.5px;font-weight:800}
+  .pill.soft{background:var(--lav);color:var(--violet)}
+  .entry .why{grid-column:1/-1;font-size:13.5px}
+  .entry .rule{grid-column:1/-1;font-size:13.5px;color:var(--pink);font-weight:800}
+  .entry .del{background:none;border:none;cursor:pointer;color:var(--muted);font-size:15px}
+  .empty{text-align:center;color:var(--muted);padding:18px;font-size:14px}
+
+  /* ---------- MAP ---------- */
+  .legend{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 4px 10px}
+  .legend span{font-size:12px;font-weight:800;padding:4px 12px;border-radius:99px;background:#fff;box-shadow:0 2px 8px rgba(142,92,240,.12);display:flex;align-items:center;gap:6px}
+  .legend span::before{content:"";width:10px;height:10px;background:var(--c);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+  #map{position:relative;margin-top:8px}
+  #map svg.road{position:absolute;inset:0;pointer-events:none;overflow:visible}
+  .banner{position:absolute;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-radius:999px;padding:10px 30px;text-align:center;box-shadow:var(--frame);z-index:2;width:min(94%,470px)}
+  .banner b{font-family:Cinzel;font-weight:700;font-size:15.5px;letter-spacing:.05em;display:block}
+  .banner span{font-size:12.5px;color:var(--muted)}
+  .node{position:absolute;width:74px;height:64px;margin:-30px 0 0 -37px;border:none;background:none;padding:0;cursor:pointer;z-index:3;
+    filter:drop-shadow(0 6px 10px rgba(110,60,200,.28));transition:transform .18s}
+  .node:hover{transform:translateY(-3px) scale(1.06)}
+  .node .rim,.node .cut{position:absolute;clip-path:polygon(22% 0,78% 0,100% 36%,50% 100%,0 36%)}
+  .node .rim{inset:0;background:linear-gradient(160deg,#fff,#D9CCF5 50%,#fff)}
+  .node .cut{inset:4px 5px 6px;
+    background:
+      linear-gradient(115deg,rgba(255,255,255,.55) 0 28%,transparent 28%),
+      linear-gradient(245deg,rgba(255,255,255,.3) 0 30%,transparent 30%),
+      linear-gradient(0deg,var(--c) calc(var(--p)*1%),#F7F2FF calc(var(--p)*1%))}
+  .node .cut::after{content:"";position:absolute;left:0;right:0;top:36%;height:1px;background:rgba(255,255,255,.75)}
+  .node .num{position:absolute;left:0;right:0;top:9px;text-align:center;font-family:Cinzel;font-weight:800;font-size:17px;color:var(--ink);z-index:1}
+  .node.done .cut{background:
+      linear-gradient(115deg,rgba(255,255,255,.6) 0 28%,transparent 28%),
+      linear-gradient(245deg,rgba(255,255,255,.35) 0 30%,transparent 30%),
+      linear-gradient(180deg,#fff -40%,var(--c) 60%)}
+  .node.done .num{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .node .crown{position:absolute;left:50%;top:-22px;transform:translateX(-50%);font-size:22px;color:#C99BFF;text-shadow:0 0 8px #fff,0 0 2px #fff;z-index:2}
+  .node.mock{width:88px;height:76px;margin:-36px 0 0 -44px}
+  .node.mock .num{top:12px;font-size:19px}
+  .node.today{animation:glow 1.8s ease-in-out infinite}
+  @keyframes glow{50%{filter:drop-shadow(0 0 14px rgba(255,255,255,1)) drop-shadow(0 0 22px rgba(232,91,181,.6))}}
+  .node.future{opacity:.85}
+  .you{position:absolute;z-index:4;transform:translate(-50%,-100%);pointer-events:none;animation:bob 2s ease-in-out infinite;
+    width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:radial-gradient(circle at 35% 30%,#fff,#EBDDFF);box-shadow:0 0 0 2px #fff,0 4px 12px rgba(110,60,200,.35)}
+  @keyframes bob{50%{transform:translate(-50%,calc(-100% - 6px))}}
+  .label{position:absolute;width:170px;font-size:12.5px;line-height:1.25;z-index:2;transform:translateY(-50%)}
+  .label b{display:block;font-size:13.5px;font-weight:800}
+  .label small{color:var(--muted);font-weight:700}
+  .finish{position:absolute;left:50%;transform:translateX(-50%);text-align:center;z-index:3;width:260px}
+  .finish svg{width:100%;height:auto;filter:drop-shadow(0 8px 20px rgba(150,90,230,.35))}
+  .finish .script{font-size:30px;color:var(--violet);display:block;margin-top:-4px}
+
+  /* ---------- MODALS ---------- */
+  .scrim{position:fixed;inset:0;background:rgba(70,40,120,.35);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:14px;z-index:20}
+  .scrim.open{display:flex}
+  #errScrim{z-index:30}
+  .modal{background:#FDFBFF;border-radius:28px;max-width:570px;width:100%;max-height:92vh;overflow:auto;box-shadow:0 0 0 1px #fff,0 0 0 6px rgba(214,196,255,.6),0 24px 60px rgba(70,30,140,.35);animation:pop .35s cubic-bezier(.3,1.4,.5,1)}
+  @keyframes pop{from{transform:scale(.9) translateY(16px);opacity:0}}
+  .m-head{color:#fff;padding:22px 24px 20px;position:relative;overflow:hidden;
+    background:repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0 1px,transparent 1px 22px),repeating-linear-gradient(-45deg,rgba(255,255,255,.12) 0 1px,transparent 1px 22px),linear-gradient(135deg,var(--c),#C77DDF 70%,#F3A6D3)}
+  .m-head .meta{font-weight:800;font-size:11.5px;opacity:.95;text-transform:uppercase;letter-spacing:.1em}
+  .m-head h3{font-family:Cinzel;font-weight:700;margin:5px 0 0;font-size:23px;line-height:1.2;letter-spacing:.02em}
+  .m-head .x{position:absolute;right:14px;top:12px;background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.6);color:#fff;width:34px;height:34px;border-radius:50%;font-size:15px;cursor:pointer;z-index:1}
+  .m-body{padding:18px 24px 24px}
+  .task{display:flex;gap:12px;align-items:center;padding:11px 14px;border:1px solid #ECE3FA;background:#fff;border-radius:16px;margin-bottom:8px;cursor:pointer;transition:all .15s;position:relative;user-select:none}
+  .task:hover{border-color:#CDB5FA;box-shadow:0 4px 12px rgba(142,92,240,.1)}
+  .task .box{width:24px;height:24px;flex:none;position:relative;background:#E9DEFC;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transition:all .2s}
+  .task .box::after{content:"";position:absolute;inset:3px;background:#fff;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+  .task.checked{background:linear-gradient(90deg,#FBF6FF,#fff)}
+  .task.checked .box{background:var(--iri);transform:scale(1.15)}
+  .task.checked .box::after{background:linear-gradient(135deg,rgba(255,255,255,.8),transparent 60%)}
+  .task.checked span{color:var(--muted);text-decoration:line-through;text-decoration-color:#D9A3E8}
+  .float{position:absolute;right:14px;font-weight:800;color:var(--pink);animation:up .9s ease-out forwards;pointer-events:none}
+  @keyframes up{to{transform:translateY(-34px);opacity:0}}
+  .tip{background:linear-gradient(135deg,#FFF0F8,#F1EAFF);border-radius:16px;padding:12px 15px;margin:14px 0;font-size:14px;border:1px solid #fff;box-shadow:inset 0 0 0 1px #F0DDF5}
+  .daylog{border:1px solid #ECE3FA;background:#fff;border-radius:18px;padding:12px 14px;margin:14px 0}
+  .daylog .hd{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .daylog .hd b{font-size:14px}
+  .daylog ul{margin:8px 0 0;padding-left:18px;font-size:13.5px}
+  .timer{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#6E46C9,#B35FD3 60%,#E77DC0);color:#fff;border-radius:18px;padding:12px 14px;margin:14px 0}
+  .timer .t{font-family:Cinzel;font-weight:800;font-size:26px;min-width:100px;font-variant-numeric:tabular-nums}
+  .timer .lbl2{font-size:12.5px;color:#FBE6FF;flex:1}
+  .timer .btn{padding:7px 12px;font-size:14px}
+  .moods{display:flex;gap:6px}
+  .moods button{font-size:24px;background:none;border:1px solid transparent;border-radius:14px;padding:2px 6px;cursor:pointer;transition:transform .15s}
+  .moods button:hover{transform:scale(1.2)}
+  .moods button.sel{border-color:#D4BFFA;background:var(--lav);transform:scale(1.15)}
+  input,textarea,select{width:100%;font:inherit;font-weight:600;padding:10px 12px;border:1px solid #E2D6F7;border-radius:14px;background:#fff;color:var(--ink)}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px rgba(142,92,240,.15)}
+  textarea{min-height:76px;resize:vertical}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+  .types{display:flex;flex-wrap:wrap;gap:6px}
+  .types button{font:inherit;font-size:13px;font-weight:800;border:1px solid #E2D6F7;background:#fff;border-radius:99px;padding:5px 12px;cursor:pointer;color:var(--ink)}
+  .types button.sel{background:var(--iri);border-color:transparent;color:#fff}
+  .hint{font-size:12.5px;color:var(--muted);margin-top:5px}
+  .avatars{display:flex;flex-wrap:wrap;gap:6px}
+  .avatars button{font-size:26px;background:#fff;border:1px solid #E2D6F7;border-radius:50%;width:50px;height:50px;cursor:pointer}
+  .avatars button.sel{border-color:var(--violet);box-shadow:0 0 0 3px rgba(142,92,240,.2);background:var(--lav)}
+  .set-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .backup{margin-top:18px;padding:16px;border-radius:20px;background:linear-gradient(135deg,#FFF0F8,#F1EAFF 60%,#E8F0FF);border:1px solid #fff;box-shadow:inset 0 0 0 1px #EBDDF8;display:grid;gap:10px}
+  .backup .bk-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .backup .bk-head b{font-family:Cinzel;font-size:15px}
+  .backup .bk-head span{font-size:12px;color:var(--muted)}
+  .backup p{margin:0;font-size:13px;color:var(--muted)}
+  .backup textarea{min-height:64px;font:12px/1.4 ui-monospace,Menlo,monospace;word-break:break-all}
+  .hint.ok{color:#1F9E6E;font-weight:800}.hint.bad{color:#D03A6E;font-weight:800}
+
+  #toasts{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:40;display:flex;flex-direction:column;gap:8px;align-items:center;width:max-content;max-width:92vw}
+  .toast{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);color:var(--ink);border-radius:99px;padding:10px 20px;font-weight:800;box-shadow:var(--frame);display:flex;gap:10px;align-items:center;animation:toast 3.6s forwards}
+  .toast .e{font-size:24px}
+  @keyframes toast{0%{transform:translateY(40px);opacity:0}10%,85%{transform:none;opacity:1}100%{transform:translateY(20px);opacity:0}}
+  canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:44px}
+  footer .script{font-size:26px;color:var(--violet);display:block}
+  @media (max-width:760px){
+    .top{flex-wrap:wrap}
+    .hide-sm{display:none}
+    .hero{grid-template-columns:1fr;padding:22px 20px 0;min-height:0}
+    .hero-text{padding-bottom:4px}
+    .hero h2{font-size:30px}
+    .castle{max-width:340px;margin:0 auto -2px}
+    .standing{grid-template-columns:repeat(3,1fr)}
+    .standing .lvl{grid-column:1/-1}
+    .stat:nth-child(2){border-left:none}
+    .ledger-top{grid-template-columns:1fr}
+    .barrow{grid-template-columns:118px 1fr 22px}
+    .label{width:118px;font-size:11.5px}
+    .label b{font-size:12.5px}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4D3FF"/></linearGradient>
+    <linearGradient id="gWall2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF4FB"/><stop offset="1" stop-color="#F6CDE9"/></linearGradient>
+    <linearGradient id="gSpire" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C5A3FF"/><stop offset=".5" stop-color="#9B6CF2"/><stop offset=".5" stop-color="#B994FF"/><stop offset="1" stop-color="#E2CFFF"/></linearGradient>
+    <linearGradient id="gSpire2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFB8DD"/><stop offset=".5" stop-color="#E06BB4"/><stop offset=".5" stop-color="#F59ACB"/><stop offset="1" stop-color="#FFD9EE"/></linearGradient>
+    <linearGradient id="gWin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFD8FF"/><stop offset="1" stop-color="#8E7BEA"/></linearGradient>
+    <radialGradient id="gGem" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#D9E8FF"/><stop offset="1" stop-color="#A88BFF"/></radialGradient>
+    <symbol id="castle" viewBox="0 0 420 300">
+      <ellipse cx="210" cy="292" rx="200" ry="16" fill="#fff" opacity=".55"/>
+      <!-- outer towers -->
+      <rect x="38" y="170" width="40" height="120" fill="url(#gWall2)"/>
+      <polygon points="32,172 58,92 84,172" fill="url(#gSpire2)"/>
+      <rect x="342" y="170" width="40" height="120" fill="url(#gWall2)"/>
+      <polygon points="336,172 362,92 388,172" fill="url(#gSpire2)"/>
+      <!-- walls -->
+      <rect x="70" y="210" width="280" height="80" fill="url(#gWall)"/>
+      <path d="M70 210h280v-10h-14v6h-14v-6h-14v6h-14v-6h-14v6h-14v-6h-14v6h-14v-6h-14v6h-14v-6h-14v6h-14v-6h-14v6h-14v-6h-14v6h-14v-6h-14v6h-14v-6h-14v6h-14v-6h-14z" fill="#fff"/>
+      <!-- side towers -->
+      <rect x="104" y="128" width="50" height="162" fill="url(#gWall)"/>
+      <polygon points="97,130 129,38 161,130" fill="url(#gSpire)"/>
+      <rect x="266" y="128" width="50" height="162" fill="url(#gWall)"/>
+      <polygon points="259,130 291,38 323,130" fill="url(#gSpire)"/>
+      <!-- keep -->
+      <rect x="172" y="96" width="76" height="194" fill="url(#gWall2)"/>
+      <polygon points="164,98 210,-2 256,98" fill="url(#gSpire)"/>
+      <polygon points="210,-2 210,98 256,98" fill="#fff" opacity=".22"/>
+      <polygon points="129,38 129,130 161,130" fill="#fff" opacity=".22"/>
+      <polygon points="291,38 291,130 323,130" fill="#fff" opacity=".22"/>
+      <polygon points="58,92 58,172 84,172" fill="#fff" opacity=".25"/>
+      <polygon points="362,92 362,172 388,172" fill="#fff" opacity=".25"/>
+      <!-- crowning gem -->
+      <polygon points="202,-14 218,-14 224,-6 210,10 196,-6" fill="url(#gGem)" stroke="#fff" stroke-width="1.5"/>
+      <!-- windows -->
+      <g fill="url(#gWin)" stroke="#fff" stroke-width="2">
+        <path d="M198 150a12 12 0 0 1 24 0v26h-24z"/>
+        <path d="M120 170a9 9 0 0 1 18 0v20h-18z"/><path d="M282 170a9 9 0 0 1 18 0v20h-18z"/>
+        <path d="M51 200a7 7 0 0 1 14 0v16h-14z"/><path d="M355 200a7 7 0 0 1 14 0v16h-14z"/>
+        <circle cx="210" cy="122" r="9"/>
+      </g>
+      <!-- gate -->
+      <path d="M188 290v-40a22 22 0 0 1 44 0v40z" fill="url(#gWin)" stroke="#fff" stroke-width="3"/>
+      <path d="M210 230v60" stroke="#fff" stroke-width="2" opacity=".6"/>
+      <!-- pennants -->
+      <path d="M129 38v-18l16 6-16 6" fill="#F59ACB"/><path d="M291 38v-18l16 6-16 6" fill="#F59ACB"/>
+    </symbol>
+  </defs>
+</svg>
+<canvas id="confetti"></canvas>
+<div id="toasts"></div>
+
+<div class="wrap">
+  <div class="top">
+    <div class="logo">
+      <svg class="tiara" viewBox="0 0 64 44" aria-hidden="true"><path d="M4 38 L10 14 L22 26 L32 4 L42 26 L54 14 L60 38 Z" fill="url(#gSpire)" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><circle cx="32" cy="22" r="5" fill="url(#gGem)" stroke="#fff" stroke-width="1.5"/><circle cx="10" cy="14" r="3" fill="#F59ACB"/><circle cx="54" cy="14" r="3" fill="#F59ACB"/><circle cx="32" cy="4" r="3" fill="#fff"/></svg>
+      <b>The Diamond Quest</b>
+    </div>
+    <div class="chips">
+      <div class="chip">✦ <b id="cStreak">0</b><span class="hide-sm">day streak</span></div>
+      <div class="chip">♛ <b id="cCount">30</b></div>
+      <button class="chip" id="openSettings" aria-label="Settings">⚙︎ <span class="hide-sm">Settings</span></button>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-text">
+      <div class="coach"><div class="medal" id="heroAvatar">👑</div><div class="bubble" id="pep">Welcome to the castle.</div></div>
+      <div class="hello script" id="hello">Your Highness,</div>
+      <h2 id="heroTitle">Day <em>1</em> of 30</h2>
+      <p class="sub" id="heroSub">Today's royal mission awaits.</p>
+      <button class="btn go" id="openToday">Begin today's mission ✦</button>
+    </div>
+    <div class="castle" aria-hidden="true">
+      <svg viewBox="0 -20 420 320"><use href="#castle"/>
+        <g fill="#fff">
+          <path class="spark" d="M60 40l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" style="animation-delay:.3s"/>
+          <path class="spark" d="M370 30l2.5 7 7 2.5-7 2.5-2.5 7-2.5-7-7-2.5 7-2.5z" style="animation-delay:1.1s"/>
+          <path class="spark" d="M250 10l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" style="animation-delay:1.8s"/>
+          <path class="spark" d="M150 70l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" style="animation-delay:.8s"/>
+          <path class="spark" d="M330 140l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" style="animation-delay:2.2s"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="standing">
+    <div class="lvl">
+      <small>Your royal title</small>
+      <div class="rank" id="rank">Castle Visitor</div>
+      <div class="xpbar"><i id="xpFill"></i></div>
+      <div class="xptext" id="xpText">0 sparkles</div>
+    </div>
+    <div class="stat"><b id="sDone">0</b><small>Days done</small></div>
+    <div class="stat"><b id="sMin">0</b><small>Hours</small></div>
+    <div class="stat"><b id="sBest">—</b><small>Best mock</small></div>
+  </section>
+
+  <div class="section-h"><h3>Royal Decrees</h3><span class="script">Lessons from a 685 → 715 retake</span></div>
+  <div class="decrees">
+    <div class="decree"><div class="num">I</div><b>Log every miss</b><p>More questions didn't raise the score. Knowing <em>why</em> each miss happened did. Keep the Royal Ledger below.</p></div>
+    <div class="decree"><div class="num">II</div><b>Name the gap first</b><p>In Critical Reasoning, write what the argument is missing <em>before</em> reading the options, then weigh every option.</p></div>
+    <div class="decree"><div class="num">III</div><b>Slow, neat Quant</b><p>Write every step and give your work room on the scratch pad. Careless slips are the cheapest points to win back.</p></div>
+    <div class="decree"><div class="num">IV</div><b>Plan your section order</b><p>Try your least tiring section in the middle, and rehearse the order you'll use on test day.</p></div>
+  </div>
+
+  <div class="section-h"><h3>The Jewel Box</h3><span class="script" id="badgeCount">0 of 0 jewels</span></div>
+  <div class="badges" id="badges"></div>
+
+  <div class="section-h"><h3>The Royal Ledger</h3><span class="script">Your error log: find where points slip away</span></div>
+  <div class="card">
+    <div class="ledger-top">
+      <div class="leak" id="leak"></div>
+      <div>
+        <div class="lbl" style="margin-top:0">Why you missed</div>
+        <div class="bars" id="barsType"></div>
+        <div class="lbl">By section</div>
+        <div class="bars" id="barsSec"></div>
+      </div>
+    </div>
+    <div class="ledger-tools">
+      <button class="btn go" id="addErrMain" style="font-size:14px;padding:9px 18px">✦ Log a mistake</button>
+      <select id="fSec"><option value="">All sections</option><option value="q">Quant</option><option value="v">Verbal</option><option value="di">Data Insights</option></select>
+      <select id="fType"><option value="">All reasons</option></select>
+    </div>
+    <div class="entries" id="entries"></div>
+  </div>
+
+  <div class="section-h"><h3>The Path to the Castle</h3><span class="script">Tap any gem to open that day</span></div>
+  <div class="legend">
+    <span style="--c:var(--q)">Sapphire · Quant</span>
+    <span style="--c:var(--v)">Ruby · Verbal</span>
+    <span style="--c:var(--di)">Amethyst · Data Insights</span>
+    <span style="--c:var(--mix)">Aquamarine · Mixed &amp; Mocks</span>
+  </div>
+  <div id="map"></div>
+
+  <footer><span class="script">Shine on, Your Highness</span>Built for the GMAT Focus Edition · Progress saves in this browser. Back it up from Settings.</footer>
+</div>
+<!-- Day modal -->
+<div class="scrim" id="scrim">
+  <div class="modal" role="dialog" aria-modal="true" id="dayModal">
+    <div class="m-head">
+      <div class="meta" id="mMeta"></div>
+      <h3 id="mTitle"></h3>
+      <button class="x" id="xDay" aria-label="Close">✕</button>
+    </div>
+    <div class="m-body">
+      <div id="mTasks"></div>
+      <div class="tip" id="mTip"></div>
+      <div class="daylog">
+        <div class="hd"><b>📖 Today's ledger entries</b><button class="btn" id="addErrDay" style="padding:6px 12px;font-size:13px">+ Log a mistake</button></div>
+        <ul id="dayErrs"></ul>
+      </div>
+      <div class="timer">
+        <div class="t" id="tDisplay">25:00</div>
+        <div class="lbl2">Focus sprint · finishing one adds 25 min to today's log</div>
+        <button class="btn" id="tStart">Start</button>
+        <button class="btn" id="tReset">↺</button>
+      </div>
+      <label class="lbl">How did today feel?</label>
+      <div class="moods" id="mMood"></div>
+      <div class="row">
+        <div><label class="lbl">Minutes studied</label><input type="number" id="mMinutes" min="0" placeholder="0"></div>
+        <div><label class="lbl">Score / accuracy</label><input type="text" id="mScore" placeholder="e.g. 14/20"></div>
+      </div>
+      <label class="lbl">Notes</label>
+      <textarea id="mNotes" placeholder="Anything else worth remembering about today?"></textarea>
+      <div class="nav">
+        <button class="btn" id="prevDay">← Prev</button>
+        <button class="btn go" id="closeModal" style="font-size:15px;padding:10px 20px">Save ✦</button>
+        <button class="btn" id="nextDay">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Error entry modal -->
+<div class="scrim" id="errScrim">
+  <div class="modal" role="dialog" aria-modal="true" style="--c:#8E5CF0">
+    <div class="m-head"><div class="meta" id="eMeta">Royal Ledger</div><h3>Log a mistake</h3><button class="x" id="xErr" aria-label="Close">✕</button></div>
+    <div class="m-body">
+      <div class="row">
+        <div><label class="lbl">Section</label>
+          <select id="eSec"><option value="q">Quant</option><option value="v">Verbal</option><option value="di">Data Insights</option></select></div>
+        <div><label class="lbl">Question type</label><input id="eQType" list="qtypes" placeholder="e.g. CR · Assumption"><datalist id="qtypes"></datalist></div>
+      </div>
+      <label class="lbl">Why did you miss it?</label>
+      <div class="types" id="eTypes"></div>
+      <label class="lbl">What actually happened</label>
+      <textarea id="eWhy" placeholder="e.g. Jumped to the options without writing the gap; picked the first option that sounded good."></textarea>
+      <label class="lbl">Rule for next time</label>
+      <input id="eRule" placeholder="e.g. Write the gap in 5 words before reading any option.">
+      <div class="hint">Keep it short. The ledger is useful because it's quick to fill in and easy to scan.</div>
+      <div class="nav"><span></span><button class="btn go" id="saveErr" style="font-size:15px;padding:10px 20px">Add to ledger 💎</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- Settings modal -->
+<div class="scrim" id="setScrim">
+  <div class="modal" role="dialog" aria-modal="true" style="--c:#6E46C9;max-width:450px">
+    <div class="m-head"><div class="meta">Settings</div><h3>Your royal court</h3><button class="x" id="xSet" aria-label="Close">✕</button></div>
+    <div class="m-body">
+      <label class="lbl">Your name</label><input type="text" id="name" placeholder="So your companion can greet you">
+      <div class="row">
+        <div><label class="lbl">Start date (Day 1)</label><input type="date" id="startDate"></div>
+        <div><label class="lbl">Target score</label><input type="number" id="target" min="205" max="805" step="10" placeholder="e.g. 655"></div>
+      </div>
+      <label class="lbl">Choose your royal companion</label>
+      <div class="avatars" id="avatars"></div>
+      <div class="backup">
+        <div class="bk-head"><b>✦ Progress code</b><span id="lastCopied"></span></div>
+        <p>Copy your code and keep it somewhere safe, like your notes app or an email to yourself. Paste it on any device to pick up where you left off.</p>
+        <button class="btn go" id="copyCode" style="font-size:14px;padding:9px 18px;width:100%">Copy my progress code</button>
+        <textarea id="codeBox" placeholder="Paste a progress code here to load it on this device…" spellcheck="false"></textarea>
+        <button class="btn" id="loadCode" style="width:100%">Load this code</button>
+        <div class="hint" id="codeMsg"></div>
+      </div>
+      <div class="set-actions">
+        <button class="btn" id="exportBtn">⬇️ Export progress</button>
+        <button class="btn" id="importBtn">⬆️ Import</button>
+        <input type="file" id="importFile" accept="application/json" hidden>
+        <button class="btn" id="resetBtn">🗑️ Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const WEEKS = [
+  {title:"Week I · The Castle Gates", blurb:"Find your baseline, start your ledger, rebuild the basics."},
+  {title:"Week II · The Crystal Halls", blurb:"Learn every question type and a set process for each."},
+  {title:"Week III · The Enchanted Tower", blurb:"Harder questions, now against the clock."},
+  {title:"Week IV · The Grand Ballroom", blurb:"Full practice exams, deep review and polish."},
+  {title:"The Final Stair", blurb:"Rest, shine, and claim your score."}
+];
+const PLAN = [
+ {s:"mix",t:"Diagnostic exam",k:["Take an official full-length practice exam (timed, no pauses)","Write down your section scores: Quant, Verbal, Data Insights","Log every miss in the Royal Ledger with the reason","Note which section you ran short on time in"],tip:"The diagnostic is a map, not a verdict. Starting the ledger today is worth more than the score."},
+ {s:"q",t:"Arithmetic & number properties",k:["Review integers, primes, divisibility, odd/even rules","Practise fractions, decimals and percent conversions","Do 20 problems, writing every step on paper","Log each miss: careless slip, concept gap or time?"],tip:"Memorise primes to 50 and squares to 15². Write every step, even the easy ones; skipped steps cause most careless slips."},
+ {s:"v",t:"Critical Reasoning basics",k:["Learn the parts of an argument: premise, conclusion, assumption","Study the main CR types: strengthen, weaken, assumption, inference","Do 15 CR questions untimed","For each, write the gap in the argument before reading any option"],tip:"Give the argument about 90 seconds, write the gap, then judge every option, not just the first one that looks good."},
+ {s:"di",t:"Intro to Data Insights",k:["Learn the 5 DI types: Data Sufficiency, Multi-Source, Table, Graphics, Two-Part","Memorise the Data Sufficiency answer choices","Do 10 Data Sufficiency + 5 Table Analysis problems","Log your misses"],tip:"In Data Sufficiency you rarely need to solve, only to know whether you could."},
+ {s:"q",t:"Algebra foundations",k:["Review linear equations, systems and inequalities","Review exponent and root rules","Do 20 algebra problems in big, neat areas of your scratch pad","Redo yesterday's misses without looking at the solutions"],tip:"Cramped work in a corner of the page leads to misread numbers. Give each problem room."},
+ {s:"v",t:"Reading Comprehension basics",k:["Practise mapping passages: main idea plus the role of each paragraph","Do 3 RC passages (about 10 questions) untimed","Underline the conclusion of each paragraph on paper","Log misses by type: main idea, detail, inference"],tip:"Underlining on paper now trains you to spot conclusions in your head on screen later."},
+ {s:"mix",t:"Week 1 ledger review",k:["Read your whole ledger, sorted by reason","Find the single pattern costing you the most","Redo every missed question","Write 3 'rules for next time' in your own words"],tip:"You may find your 'weak section' is really one specific habit. That's much easier to fix."},
+
+ {s:"q",t:"Word problems",k:["Rates, work and distance problems","Mixtures and weighted averages","Do 20 word problems, translating English into equations first","Log misses"],tip:"Write down what the question actually asks before you calculate anything."},
+ {s:"v",t:"CR: assumptions & weaken",k:["Study the negation test for assumption questions","Do 20 assumption/weaken questions, writing the gap first","Explain why each wrong option is wrong","Log patterns in the trap options"],tip:"Negate the option. If the argument falls apart, it's the assumption."},
+ {s:"di",t:"Data Sufficiency deep dive",k:["Do 20 Data Sufficiency problems","Practise testing cases with numbers on yes/no questions","Watch for hidden information in the question stem","Log misses"],tip:"Test zero, negatives and fractions. They break most 'always true' statements."},
+ {s:"q",t:"Statistics & probability",k:["Mean, median, mode, range, standard deviation (concept)","Probability: AND/OR rules and complements","Combinations vs permutations","Do 20 problems and log misses"],tip:"For 'at least one' probability, work out 1 minus P(none)."},
+ {s:"v",t:"RC: inference & tone",k:["Do 4 RC passages, timed (~6–7 min each)","Focus on inference: the answer must be supported by the text","Note the author's tone words in each passage","Log misses"],tip:"Extreme wording (always, never, completely) is usually a trap in RC."},
+ {s:"di",t:"Graphs & tables",k:["Do 10 Graphics Interpretation problems","Do 10 Table Analysis problems","Practise estimating instead of exact calculation","Learn the on-screen calculator"],tip:"Read axis labels and units first. Many misses come from misreading the chart."},
+ {s:"mix",t:"Mini mixed set + ledger check",k:["Do a timed mixed set: 10 Quant, 10 Verbal, 10 DI","Review every question, right and wrong","Check the ledger: is last week's top pattern shrinking?","Update your rules for next time"],tip:"Review your correct answers too. A lucky guess is still a gap, so log it."},
+
+ {s:"q",t:"Harder algebra & functions",k:["Quadratics, factoring and functions","Absolute value and inequalities","Do 20 medium-hard problems, ~2 min each","Log misses"],tip:"Past 3 minutes? Make your best guess and move on. Time saved is points earned."},
+ {s:"v",t:"CR: evaluate & paradox",k:["Study resolve-the-paradox and evaluate questions","Do 20 mixed CR questions, timed (~2 min each)","Keep writing the gap first, even under time pressure","Log misses by type"],tip:"If an argument makes no sense to you, mark your best guess and move on."},
+ {s:"di",t:"Multi-Source & Two-Part",k:["Do 3 Multi-Source Reasoning sets","Do 10 Two-Part Analysis problems","For Two-Part, split your scratch pad into two columns, one per part","Log misses"],tip:"Splitting the page in two makes the options in Two-Part questions much easier to break down."},
+ {s:"mix",t:"Practice exam #2",k:["Take a full-length official practice exam under test conditions","Bookmark doubtful questions and leave time to revisit a few","Record your section scores","Rest. Review tomorrow"],tip:"Only change a bookmarked answer if you have a clear reason. Second-guessing can turn a right answer wrong."},
+ {s:"mix",t:"Deep review of exam #2",k:["Log every miss from exam #2 in the ledger","Compare the ledger to your diagnostic: what changed?","Pick your 3 most expensive patterns for next week","Rewrite your rules for next time"],tip:"An hour of deep review beats three hours of new questions."},
+ {s:"q",t:"Quant weak-spot drill",k:["Spend 60 min on your top Quant pattern from the ledger","Do 25 problems targeting it","Re-learn the concept from scratch if it's a concept gap","Log misses"],tip:"If your Quant misses are mostly careless slips, the fix is slowing down, not more theory."},
+ {s:"v",t:"Verbal weak-spot drill",k:["Spend 60 min on your top Verbal pattern from the ledger","Do 2 RC passages + 15 CR questions, timed","Pace at about 1:55 per Verbal question","Log misses"],tip:"If two options seem right, find the one word that makes one of them wrong."},
+
+ {s:"di",t:"DI weak-spot drill",k:["Spend 60 min on your top DI pattern from the ledger","Do 20 problems, timed","Practise deciding which questions to skip","Log misses"],tip:"DI is the hardest section to finish. Plan to guess on 1–2 to save time."},
+ {s:"mix",t:"Practice exam #3",k:["Take a full-length practice exam","Try a new section order, e.g. Verbal → Quant → break → DI","Record your section scores","Note how your energy holds up"],tip:"Putting your least tiring section in the middle can help you reach the last section still sharp."},
+ {s:"mix",t:"Deep review of exam #3",k:["Log every miss in the ledger","Decide on your final section order","Check your pacing in each section","Update your rules for next time"],tip:"Look for patterns: do you rush at the end of sections or slow down at the start?"},
+ {s:"q",t:"Quant speed set",k:["Do 3 timed sets of 7 Quant questions (15 min each)","Aim to finish with a few minutes to recheck","Review and log all misses","Redo your 10 hardest Quant ledger entries"],tip:"21 questions in 45 minutes is about 2:08 each. Steady and accurate beats fast and sloppy."},
+ {s:"v",t:"Verbal speed set",k:["Do 2 timed sets of 12 Verbal questions (23 min each)","Practise passage mapping faster","Review and log all misses","Redo your 10 hardest Verbal ledger entries"],tip:"23 questions in 45 minutes is about 1:57 each."},
+ {s:"di",t:"DI speed set",k:["Do 2 timed sets of 10 DI questions (22 min each)","Use the on-screen calculator","Review and log all misses","Redo your 10 hardest DI ledger entries"],tip:"20 questions in 45 minutes is about 2:15 each, but multi-part questions take longer."},
+ {s:"mix",t:"Practice exam #4",k:["Take your final full-length practice exam","Use your chosen section order and break timing","Record your scores","Celebrate how far you've come"],tip:"This is your dress rehearsal for the royal ball."},
+
+ {s:"mix",t:"Final review & test-day prep",k:["Read only the 'rule for next time' column of your ledger (60 min max)","Confirm your test time, location or online setup, and ID","Plan your route, meals and break snacks","Sleep early"],tip:"No new topics now. Your ledger is your crown. Trust what you've built."},
+ {s:"mix",t:"Test day 👑",k:["Eat a good breakfast","Arrive (or log in) early","Use your planned section order and breaks","Breathe: one question at a time"],tip:"A tough question isn't a sign you're failing. The test adapts. Keep your chin up and keep going."}
+];
+const MOCKS = [0,17,22,27];
+const weekOf = i => i<7?0:i<14?1:i<21?2:i<28?3:4;
+const COLORS = {q:"var(--q)",v:"var(--v)",di:"var(--di)",mix:"var(--mix)"};
+const SECTION = {q:"Quant",v:"Verbal",di:"Data Insights",mix:"Mixed"};
+const GEM = {q:"◆",v:"◆",di:"◆",mix:"◆"};
+const MOODS = ["😩","😕","😐","🙂","🤩"];
+const AVATARS = ["👑","🦄","🦢","🐱","🦋","🐩","🌸","🕊️","🐴","🧚"];
+const RANKS = [
+  [0,"Castle Visitor"],[150,"Lady of the Court"],[400,"Royal Scholar"],[750,"Sapphire Countess"],
+  [1150,"Ruby Duchess"],[1650,"Amethyst Princess"],[2250,"Crown Princess"],[2950,"Diamond Queen"],[3700,"Empress of 805"]
+];
+const REASONS = [
+  {id:"careless",n:"Careless slip",e:"🫧"},
+  {id:"concept",n:"Concept gap",e:"📚"},
+  {id:"process",n:"Skipped my process",e:"🗝️"},
+  {id:"misread",n:"Misread the question",e:"👓"},
+  {id:"time",n:"Ran out of time",e:"⏳"},
+  {id:"lucky",n:"Lucky guess",e:"🍀"}
+];
+const FIX = {
+  careless:"Slow down and write every step. These are the cheapest points to win back.",
+  concept:"Go back to the lesson for this topic, then do 10–15 focused problems on it.",
+  process:"Stick to your routine every time, e.g. write the CR gap before reading options.",
+  misread:"Re-read the last line of the question before you choose an answer.",
+  time:"Set a cut-off per question and practise guessing and moving on.",
+  lucky:"Treat it as a miss. Review it until you could get it right on purpose."
+};
+const QTYPES = {
+  q:["Arithmetic","Number properties","Algebra","Word problems","Rates & work","Statistics","Probability","Counting"],
+  v:["CR · Assumption","CR · Weaken","CR · Strengthen","CR · Inference","CR · Evaluate","CR · Paradox","RC · Main idea","RC · Detail","RC · Inference","RC · Tone"],
+  di:["Data Sufficiency","Multi-Source Reasoning","Table Analysis","Graphics Interpretation","Two-Part Analysis"]
+};
+const PEP = [
+  "A queen doesn't rush. She reads the question twice.","Every mistake you log is a jewel for your crown.",
+  "Small, steady steps up the castle stairs.","More questions won't fix it. Knowing why you missed them will.",
+  "Twenty focused minutes beats two distracted hours.","Show up today. Future-you will curtsy in thanks.",
+  "Write the gap first. Then let the options come to you.","Neat work, clear mind, sparkling score.",
+  "You don't have to be perfect, just consistent.","Today's goal: shine 1% brighter than yesterday."
+];
+const KEY = "gmat30-progress-v1";
+
+/* ================= STATE ================= */
+const el = id => document.getElementById(id);
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const todayISO = () => { const d=new Date(); return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10); };
+function blank(){ return {start:todayISO(), target:"", name:"", avatar:"👑", days:{}, badges:[], sprints:0, errors:[]}; }
+let state = load();
+function load(){
+  try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s && s.days){ const st=Object.assign(blank(), s); if(!AVATARS.includes(st.avatar)) st.avatar="👑"; return st; } }catch(e){}
+  return blank();
+}
+function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function dayData(i){ return state.days[i] || (state.days[i] = {tasks:[],notes:"",minutes:"",score:"",mood:null}); }
+const doneCount = i => { const d=state.days[i]; return d ? PLAN[i].k.filter((_,j)=>d.tasks[j]).length : 0; };
+const isComplete = i => doneCount(i) === PLAN[i].k.length;
+function todayIndex(){ const s=new Date(state.start+"T00:00:00"), n=new Date(); n.setHours(0,0,0,0); return Math.round((n-s)/864e5); }
+function dateFor(i){ const d=new Date(state.start+"T00:00:00"); d.setDate(d.getDate()+i); return d.toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"}); }
+function streak(){ let t=Math.min(todayIndex(),29), c=0; if(t<0) return 0; if(!isComplete(t)) t--; for(let i=t;i>=0&&isComplete(i);i--) c++; return c; }
+function longestRun(){ let b=0,c=0; for(let i=0;i<30;i++){ c=isComplete(i)?c+1:0; b=Math.max(b,c);} return b; }
+function bestMock(){ let b=null; MOCKS.forEach(i=>{ const v=parseInt((state.days[i]||{}).score); if(v>=205&&v<=805) b=Math.max(b||0,v); }); return b; }
+function totalMinutes(){ return Object.values(state.days).reduce((a,d)=>a+(parseInt(d.minutes)||0),0); }
+function xp(){
+  let x=0;
+  PLAN.forEach((p,i)=>{ if(!state.days[i]) return; x+=doneCount(i)*25; if(isComplete(i)) x+=MOCKS.includes(i)?150:50; });
+  return x + state.errors.length*15 + (state.sprints||0)*20;
+}
+function rankFor(x){ let r=0; RANKS.forEach((t,i)=>{ if(x>=t[0]) r=i; }); return r; }
+
+const BADGES = [
+  {id:"first",e:"💍",n:"First Jewel",d:"Finish any day",f:()=>PLAN.some((_,i)=>isComplete(i))},
+  {id:"s3",e:"✨",n:"Sparkle Streak",d:"3 days in a row",f:()=>longestRun()>=3},
+  {id:"s7",e:"🌟",n:"Starlight",d:"7 days in a row",f:()=>longestRun()>=7},
+  {id:"half",e:"🗝️",n:"Tower Key",d:"15 days done",f:()=>PLAN.filter((_,i)=>isComplete(i)).length>=15},
+  {id:"mocks",e:"👗",n:"Ball Ready",d:"All 4 practice exams",f:()=>MOCKS.every(isComplete)},
+  {id:"q",e:"💙",n:"Sapphire",d:"All Quant days",f:()=>PLAN.every((p,i)=>p.s!=="q"||isComplete(i))},
+  {id:"v",e:"❤️",n:"Ruby",d:"All Verbal days",f:()=>PLAN.every((p,i)=>p.s!=="v"||isComplete(i))},
+  {id:"di",e:"💜",n:"Amethyst",d:"All DI days",f:()=>PLAN.every((p,i)=>p.s!=="di"||isComplete(i))},
+  {id:"log1",e:"🪶",n:"Royal Scribe",d:"First ledger entry",f:()=>state.errors.length>=1},
+  {id:"log25",e:"📖",n:"Keeper of Secrets",d:"25 ledger entries",f:()=>state.errors.length>=25},
+  {id:"focus",e:"🕯️",n:"Deep Focus",d:"5 focus sprints",f:()=>(state.sprints||0)>=5},
+  {id:"target",e:"🎯",n:"Bullseye",d:"Hit your target on a mock",f:()=>{const b=bestMock();return b&&state.target&&b>=+state.target;}},
+  {id:"done",e:"👑",n:"The Crown",d:"All 30 days",f:()=>PLAN.every((_,i)=>isComplete(i))}
+];
+
+/* ================= RENDER ================= */
+function renderHero(){
+  const ti=todayIndex(), x=xp(), r=rankFor(x);
+  el("heroAvatar").textContent=state.avatar;
+  const nm = state.name ? state.name.trim().split(" ")[0] : "";
+  el("hello").textContent = nm ? `Dearest ${nm},` : "Your Highness,";
+  let title, sub, pep = PEP[((ti%PEP.length)+PEP.length)%PEP.length];
+  if(ti<0){ title=`Begins in <em>${-ti}</em> day${ti===-1?"":"s"}`; sub=`Your quest begins ${dateFor(0)}. Take a peek at Day 1.`; }
+  else if(ti>29){ title=`Quest <em>complete</em>`; sub="Test day has come and gone. You showed up for 30 days. 💖"; pep="Look at everything you did. Truly royal."; }
+  else { title=`Day <em>${ti+1}</em> of 30`;
+    sub = isComplete(ti) ? "✅ Today's mission is done! Feel free to get ahead." : `Today: ${GEM[PLAN[ti].s]} ${PLAN[ti].t}`;
+    if(isComplete(ti)) pep="Mission complete! Time for a royal treat. 🍰"; }
+  el("pep").textContent = pep;
+  el("heroTitle").innerHTML=title; el("heroSub").textContent=sub;
+  el("openToday").textContent = ti<0?"Peek at Day 1 ✦": ti>29?"Look back at Day 30 ✦": isComplete(ti)?"Review today ✦":"Begin today's mission ✦";
+  const lo=RANKS[r][0], hi=RANKS[r+1]?RANKS[r+1][0]:lo;
+  el("rank").textContent=RANKS[r][1];
+  el("xpFill").style.width=(hi>lo?(x-lo)/(hi-lo)*100:100)+"%";
+  el("xpText").textContent = RANKS[r+1] ? `${x} sparkles · ${hi-x} to ${RANKS[r+1][1]}` : `${x} sparkles · highest title!`;
+  el("sDone").textContent=PLAN.filter((_,i)=>isComplete(i)).length;
+  const m=totalMinutes(); el("sMin").textContent=(m/60).toFixed(m%60?1:0);
+  el("sBest").textContent=bestMock()||"—";
+  el("cStreak").textContent=streak();
+  const left=29-ti;
+  el("cCount").textContent = left<0?"crowned!": left===0?"Test day!": left>29?`${left} days to go`:`${left} day${left===1?"":"s"} to test`;
+}
+
+function renderBadges(){
+  const wrap=el("badges"); wrap.innerHTML=""; let on=0;
+  BADGES.forEach(b=>{ const has=state.badges.includes(b.id); if(has) on++;
+    const d=document.createElement("div"); d.className="badge"+(has?" on":""); d.title=b.d;
+    d.innerHTML=`<span class="e">${b.e}</span>${b.n}<small>${b.d}</small>`; wrap.appendChild(d); });
+  el("badgeCount").textContent=`${on} / ${BADGES.length} jewels`;
+}
+
+function bars(target, items){
+  const max=Math.max(1,...items.map(x=>x.v));
+  el(target).innerHTML = items.map(x=>`<div class="barrow"><span>${x.l}</span><span class="track"><i style="width:${x.v/max*100}%;${x.c?`background:${x.c}`:""}"></i></span><b>${x.v}</b></div>`).join("");
+}
+function renderLedger(){
+  const E=state.errors;
+  const byType=REASONS.map(r=>({l:`${r.e} ${r.n}`,v:E.filter(e=>e.type===r.id).length,id:r.id}));
+  bars("barsType",byType);
+  bars("barsSec",["q","v","di"].map(s=>({l:`${GEM[s]} ${SECTION[s]}`,v:E.filter(e=>e.sec===s).length,c:COLORS[s]})));
+  // biggest leak: most common section+reason combo
+  const combos={}; E.forEach(e=>{ const k=e.sec+"|"+e.type; combos[k]=(combos[k]||0)+1; });
+  const top=Object.entries(combos).sort((a,b)=>b[1]-a[1])[0];
+  if(!top){
+    el("leak").innerHTML=`<small>Your biggest leak</small><div class="big">Nothing logged yet</div><p>Each time you miss a question, add it here with the reason. After a few days this card will show the one habit that costs you the most points.</p>`;
+  } else {
+    const [sec,type]=top[0].split("|"), r=REASONS.find(x=>x.id===type);
+    const qt={}; E.filter(e=>e.sec===sec&&e.type===type&&e.qtype).forEach(e=>qt[e.qtype]=(qt[e.qtype]||0)+1);
+    const tq=Object.entries(qt).sort((a,b)=>b[1]-a[1])[0];
+    el("leak").innerHTML=`<small>Your biggest leak · ${E.length} entr${E.length===1?"y":"ies"} logged</small>
+      <div class="big">${r.e} ${r.n} in ${SECTION[sec]}</div>
+      <p><b>${top[1]}</b> of your misses${tq?`, mostly on <b>${esc(tq[0])}</b>`:""}. ${FIX[type]}</p>`;
+  }
+  const fs=el("fSec").value, ft=el("fType").value;
+  const list=E.map((e,idx)=>({...e,idx})).filter(e=>(!fs||e.sec===fs)&&(!ft||e.type===ft)).reverse();
+  el("entries").innerHTML = list.length ? list.map(e=>{ const r=REASONS.find(x=>x.id===e.type)||REASONS[0];
+    return `<div class="entry"><div class="head"><span class="pill" style="background:${COLORS[e.sec]}">${SECTION[e.sec]}</span>
+      ${e.qtype?`<span class="pill soft">${esc(e.qtype)}</span>`:""}<span class="pill soft">${r.e} ${r.n}</span>
+      <span style="color:var(--muted)">Day ${e.day+1}</span></div>
+      <button class="del" data-i="${e.idx}" aria-label="Delete entry">✕</button>
+      ${e.why?`<div class="why">${esc(e.why)}</div>`:""}${e.rule?`<div class="rule">→ ${esc(e.rule)}</div>`:""}</div>`; }).join("")
+    : `<div class="empty">${E.length?"No entries match these filters.":"Your ledger is empty. Log your first mistake to start finding patterns. 🪶"}</div>`;
+  el("entries").querySelectorAll(".del").forEach(b=>b.onclick=()=>{ state.errors.splice(+b.dataset.i,1); commit(); });
+}
+
+function renderMap(){
+  const map=el("map"); map.innerHTML="";
+  const W=map.clientWidth, cx=W/2, amp=Math.min(W*0.26,170), ti=todayIndex();
+  const pts=[]; let y=50; const NS="http://www.w3.org/2000/svg";
+  const svg=document.createElementNS(NS,"svg"); svg.setAttribute("class","road"); map.appendChild(svg);
+  svg.innerHTML=`<defs><linearGradient id="lit" x1="0" x2="1"><stop offset="0" stop-color="#F77FC6"/><stop offset="1" stop-color="#8AA9FF"/></linearGradient></defs>`;
+  PLAN.forEach((p,i)=>{
+    if(i===0||weekOf(i)!==weekOf(i-1)){
+      const w=WEEKS[weekOf(i)], b=document.createElement("div"); b.className="banner"; b.style.top=(y-28)+"px";
+      b.innerHTML=`<b>${w.title}</b><span>${w.blurb}</span>`; map.appendChild(b); y+=b.offsetHeight+36;
+    }
+    const x=cx+Math.sin(i*0.85)*amp; pts.push([x,y]);
+    const mock=MOCKS.includes(i), pct=Math.round(doneCount(i)/p.k.length*100);
+    const n=document.createElement("button");
+    n.className="node"+(isComplete(i)?" done":"")+(mock?" mock":"")+(i===ti?" today":"")+(i>ti?" future":"");
+    n.style.cssText=`left:${x}px;top:${y}px;--c:${COLORS[p.s]};--p:${pct}`;
+    n.innerHTML=`<span class="rim"></span><span class="cut"></span><span class="num">${isComplete(i)?"✦":i+1}</span>${mock?'<span class="crown">♛</span>':""}`;
+    n.setAttribute("aria-label",`Day ${i+1}: ${p.t}`); n.onclick=()=>openDay(i); map.appendChild(n);
+    const lab=document.createElement("div"); lab.className="label"; const off=mock?58:50; lab.style.top=y+"px";
+    if(x<cx){ lab.style.left=(x+off)+"px"; } else { lab.style.left=(x-off)+"px"; lab.style.transform="translate(-100%,-50%)"; lab.style.textAlign="right"; }
+    lab.innerHTML=`<small>Day ${i+1} · ${dateFor(i)}</small><b>${p.t}</b>`; map.appendChild(lab);
+    if(i===ti){ const you=document.createElement("div"); you.className="you"; you.textContent=state.avatar; you.style.left=x+"px"; you.style.top=(y-(mock?62:46))+"px"; map.appendChild(you); }
+    y+=106;
+  });
+  const fin=document.createElement("div"); fin.className="finish"; fin.innerHTML=`<svg viewBox="0 -20 420 320"><use href="#castle"/></svg><span class="script">The Diamond Castle</span>`;
+  fin.style.top=(y-40)+"px"; map.appendChild(fin); map.style.height=(y+200)+"px";
+  const seg=(a,b)=>{ const my=(a[1]+b[1])/2; return `M${a[0]},${a[1]} C${a[0]},${my} ${b[0]},${my} ${b[0]},${b[1]}`; };
+  pts.push([cx,y+60]);
+  for(let i=0;i<pts.length-1;i++){
+    const path=document.createElementNS(NS,"path"); path.setAttribute("d",seg(pts[i],pts[i+1]));
+    const lit=isComplete(i)&&(i+1>=30||isComplete(i+1));
+    path.setAttribute("fill","none"); path.setAttribute("stroke-linecap","round");
+    path.setAttribute("stroke",lit?"url(#lit)":"#FFFFFF"); path.setAttribute("stroke-width",lit?10:8);
+    if(!lit) path.setAttribute("stroke-dasharray","1 15");
+    svg.appendChild(path);
+  }
+}
+
+function render(){ renderHero(); renderBadges(); renderLedger(); renderMap(); }
+
+/* ================= CELEBRATIONS ================= */
+function toast(e,msg){ const t=document.createElement("div"); t.className="toast"; t.innerHTML=`<span class="e">${e}</span><span>${msg}</span>`; el("toasts").appendChild(t); setTimeout(()=>t.remove(),3700); }
+function checkBadges(silent){
+  BADGES.forEach(b=>{ if(!state.badges.includes(b.id)&&b.f()){ state.badges.push(b.id); if(!silent){ toast(b.e,`A new jewel: ${b.n}!`); confetti(80);} } });
+}
+const cv=el("confetti"), g=cv.getContext("2d"); let parts=[], anim=null;
+function confetti(n=160){
+  cv.width=innerWidth; cv.height=innerHeight;
+  const cols=["#F77FC6","#B57BF7","#8AA9FF","#FFFFFF","#FFD3F0","#D6E6FF","#C9A6FF"];
+  for(let i=0;i<n;i++) parts.push({x:innerWidth/2+(Math.random()-.5)*220,y:innerHeight*.45,vx:(Math.random()-.5)*16,vy:-Math.random()*16-6,
+    s:Math.random()*8+5,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:cols[i%cols.length],k:i%3,life:0});
+  if(!anim) tick();
+}
+function tick(){
+  g.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{ p.vy+=.42; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.r+=p.vr; p.life++;
+    g.save(); g.translate(p.x,p.y); g.rotate(p.r); g.fillStyle=p.c; g.shadowColor="#E9B8FF"; g.shadowBlur=6;
+    if(p.k===0){ g.beginPath(); g.moveTo(0,-p.s*.8); g.lineTo(p.s*.5,0); g.lineTo(0,p.s*.8); g.lineTo(-p.s*.5,0); g.closePath(); g.fill(); }
+    else if(p.k===1){ g.beginPath(); g.arc(0,0,p.s/3,0,7); g.fill(); }
+    else g.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);
+    g.restore(); });
+  parts=parts.filter(p=>p.y<cv.height+40&&p.life<400);
+  anim = parts.length ? requestAnimationFrame(tick) : (g.clearRect(0,0,cv.width,cv.height), null);
+}
+function chime(){
+  try{ const a=new (window.AudioContext||window.webkitAudioContext)();
+    [784,988,1175,1568].forEach((f,i)=>{ const o=a.createOscillator(), gn=a.createGain(); o.type="triangle"; o.frequency.value=f; o.connect(gn); gn.connect(a.destination);
+      const t=a.currentTime+i*.12; gn.gain.setValueAtTime(.13,t); gn.gain.exponentialRampToValueAtTime(.001,t+.5); o.start(t); o.stop(t+.5); }); }catch(e){}
+}
+(function twinkles(){ for(let i=0;i<30;i++){ const s=document.createElement("span"); const note=i>=22; s.className="twinkle"+(note?" note":""); s.textContent=note?(i%2?"♪":"♫"):(i%3?"✦":"✧");
+  s.style.cssText=`left:${Math.random()*100}vw;top:${Math.random()*100}vh;font-size:${8+Math.random()*14}px;animation-delay:${Math.random()*3}s;animation-duration:${2.4+Math.random()*2}s`;
+  document.body.appendChild(s);} })();
+
+/* ================= DAY MODAL ================= */
+let cur=0;
+function openDay(i){
+  cur=i; const p=PLAN[i], d=dayData(i);
+  el("dayModal").style.setProperty("--c",COLORS[p.s]);
+  el("mMeta").textContent=`${GEM[p.s]} Day ${i+1} · ${dateFor(i)} · ${SECTION[p.s]}${MOCKS.includes(i)?" · Royal Ball":""}`;
+  el("mTitle").textContent=p.t;
+  const tl=el("mTasks"); tl.innerHTML="";
+  p.k.forEach((txt,j)=>{
+    const row=document.createElement("div"); row.className="task"+(d.tasks[j]?" checked":""); row.tabIndex=0;
+    row.setAttribute("role","checkbox"); row.setAttribute("aria-checked",!!d.tasks[j]);
+    row.innerHTML=`<span class="box"></span><span>${txt}</span>`;
+    const toggle=()=>{ const was=isComplete(i);
+      d.tasks[j]=!d.tasks[j]; row.classList.toggle("checked",d.tasks[j]); row.setAttribute("aria-checked",d.tasks[j]);
+      if(d.tasks[j]){ const f=document.createElement("span"); f.className="float"; f.textContent="+25 ✨"; row.appendChild(f); setTimeout(()=>f.remove(),900); }
+      if(!was&&isComplete(i)){ confetti(); chime(); toast(MOCKS.includes(i)?"👑":"💎", MOCKS.includes(i)?"You conquered the Royal Ball! +150 sparkles":`Day ${i+1} complete! +50 sparkles`); }
+      commit(); };
+    row.onclick=toggle; row.onkeydown=e=>{ if(e.key===" "||e.key==="Enter"){ e.preventDefault(); toggle(); } };
+    tl.appendChild(row);
+  });
+  el("mTip").innerHTML=`🪄 <b>Royal tip:</b> ${p.tip}`;
+  const mm=el("mMood"); mm.innerHTML="";
+  MOODS.forEach((m,k)=>{ const b=document.createElement("button"); b.textContent=m; b.className=d.mood===k?"sel":"";
+    b.onclick=()=>{ d.mood=k; [...mm.children].forEach(c=>c.className=""); b.className="sel"; commit(); }; mm.appendChild(b); });
+  el("mMinutes").value=d.minutes; el("mScore").value=d.score; el("mNotes").value=d.notes;
+  el("mScore").placeholder = MOCKS.includes(i) ? "Total score, e.g. 615" : "e.g. 14/20";
+  el("prevDay").style.visibility=i===0?"hidden":"visible";
+  el("nextDay").style.visibility=i===29?"hidden":"visible";
+  renderDayErrs();
+  el("scrim").classList.add("open");
+}
+function renderDayErrs(){
+  const list=state.errors.filter(e=>e.day===cur);
+  el("dayErrs").innerHTML = list.length ? list.map(e=>{ const r=REASONS.find(x=>x.id===e.type)||REASONS[0];
+    return `<li><b>${SECTION[e.sec]}${e.qtype?` · ${esc(e.qtype)}`:""}</b>: ${r.e} ${r.n}${e.rule?` → <span style="color:var(--pink)">${esc(e.rule)}</span>`:""}</li>`; }).join("")
+    : `<li style="list-style:none;margin-left:-18px;color:var(--muted)">No mistakes logged for this day yet.</li>`;
+}
+function saveFields(){ const d=dayData(cur); d.minutes=el("mMinutes").value; d.score=el("mScore").value; d.notes=el("mNotes").value; }
+function commit(){ checkBadges(); persist(); render(); }
+["mMinutes","mScore","mNotes"].forEach(id=>el(id).addEventListener("input",()=>{ saveFields(); persist(); }));
+function closeDay(){ saveFields(); commit(); el("scrim").classList.remove("open"); }
+el("closeModal").onclick=closeDay; el("xDay").onclick=closeDay;
+el("scrim").onclick=e=>{ if(e.target.id==="scrim") closeDay(); };
+el("prevDay").onclick=()=>{ saveFields(); persist(); openDay(cur-1); };
+el("nextDay").onclick=()=>{ saveFields(); persist(); openDay(cur+1); };
+el("openToday").onclick=()=>openDay(Math.max(0,Math.min(29,todayIndex())));
+
+/* ================= ERROR LOG ================= */
+let eDay=0, eType=null;
+el("fType").innerHTML += REASONS.map(r=>`<option value="${r.id}">${r.e} ${r.n}</option>`).join("");
+el("fSec").onchange=el("fType").onchange=renderLedger;
+function setQTypes(){ el("qtypes").innerHTML=QTYPES[el("eSec").value].map(t=>`<option value="${t}">`).join(""); }
+el("eSec").onchange=setQTypes;
+function openErr(day){
+  eDay=day; eType=null; const s=PLAN[day].s;
+  el("eMeta").textContent=`Royal Ledger · Day ${day+1}`;
+  el("eSec").value = s==="mix" ? "q" : s; setQTypes();
+  el("eQType").value=""; el("eWhy").value=""; el("eRule").value="";
+  el("eTypes").innerHTML=REASONS.map(r=>`<button data-t="${r.id}">${r.e} ${r.n}</button>`).join("");
+  el("eTypes").querySelectorAll("button").forEach(b=>b.onclick=()=>{ eType=b.dataset.t; el("eTypes").querySelectorAll("button").forEach(c=>c.classList.toggle("sel",c===b)); });
+  el("errScrim").classList.add("open");
+}
+const closeErr=()=>el("errScrim").classList.remove("open");
+el("xErr").onclick=closeErr; el("errScrim").onclick=e=>{ if(e.target.id==="errScrim") closeErr(); };
+el("addErrDay").onclick=()=>{ saveFields(); openErr(cur); };
+el("addErrMain").onclick=()=>openErr(Math.max(0,Math.min(29,todayIndex())));
+el("saveErr").onclick=()=>{
+  if(!eType){ el("eTypes").animate([{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"none"}],{duration:250}); toast("🪶","Pick why you missed it first."); return; }
+  state.errors.push({day:eDay,sec:el("eSec").value,qtype:el("eQType").value.trim(),type:eType,why:el("eWhy").value.trim(),rule:el("eRule").value.trim(),at:Date.now()});
+  closeErr(); toast("💎","Added to the Royal Ledger! +15 sparkles"); commit(); if(el("scrim").classList.contains("open")) renderDayErrs();
+};
+
+/* ================= FOCUS TIMER ================= */
+const SPRINT=25*60; let left=SPRINT, timer=null, timerDay=0;
+const fmt=s=>`${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
+function showTime(){ el("tDisplay").textContent=fmt(left); document.title = timer?`⏳ ${fmt(left)} · The Diamond Quest`:"The Diamond Quest · 30 Days to GMAT Test Day"; }
+el("tStart").onclick=()=>{
+  if(timer){ clearInterval(timer); timer=null; el("tStart").textContent="Resume"; showTime(); return; }
+  timerDay=cur; el("tStart").textContent="Pause"; const end=Date.now()+left*1000;
+  timer=setInterval(()=>{ left=Math.max(0,Math.round((end-Date.now())/1000)); showTime();
+    if(left===0){ clearInterval(timer); timer=null; left=SPRINT; el("tStart").textContent="Start";
+      const d=dayData(timerDay); d.minutes=String((parseInt(d.minutes)||0)+25); state.sprints=(state.sprints||0)+1;
+      if(cur===timerDay) el("mMinutes").value=d.minutes;
+      chime(); confetti(90); toast("🕯️","Focus sprint done! +25 min, +20 sparkles"); commit(); showTime(); } },250);
+};
+el("tReset").onclick=()=>{ clearInterval(timer); timer=null; left=SPRINT; el("tStart").textContent="Start"; showTime(); };
+
+/* ================= SETTINGS ================= */
+function openSettings(){
+  el("name").value=state.name||""; el("startDate").value=state.start; el("target").value=state.target||"";
+  const av=el("avatars"); av.innerHTML="";
+  AVATARS.forEach(a=>{ const b=document.createElement("button"); b.textContent=a; b.className=state.avatar===a?"sel":"";
+    b.onclick=()=>{ state.avatar=a; [...av.children].forEach(c=>c.className=""); b.className="sel"; commit(); }; av.appendChild(b); });
+  el("codeBox").value=""; el("codeMsg").textContent=""; el("codeMsg").className="hint";
+  showLastCopied();
+  el("setScrim").classList.add("open");
+}
+
+/* ---- progress code (copy / paste) ---- */
+const b64 = bytes => { let s=""; bytes.forEach(b=>s+=String.fromCharCode(b)); return btoa(s); };
+const unb64 = str => Uint8Array.from(atob(str), c=>c.charCodeAt(0));
+async function squeeze(bytes, mode){
+  const stream = new Blob([bytes]).stream().pipeThrough(mode==="in" ? new CompressionStream("deflate-raw") : new DecompressionStream("deflate-raw"));
+  return new Uint8Array(await new Response(stream).arrayBuffer());
+}
+async function makeCode(){
+  const raw = new TextEncoder().encode(JSON.stringify(state));
+  if(window.CompressionStream){ try{ return "DQ1:"+b64(await squeeze(raw,"in")); }catch(e){} }
+  return "DQ0:"+b64(raw);
+}
+async function readCode(text){
+  const t=text.trim();
+  if(t.startsWith("{")) return JSON.parse(t);                       // a pasted export file also works
+  const clean=t.replace(/\s+/g,"");
+  if(clean.startsWith("DQ1:")) return JSON.parse(new TextDecoder().decode(await squeeze(unb64(clean.slice(4)),"out")));
+  if(clean.startsWith("DQ0:")) return JSON.parse(new TextDecoder().decode(unb64(clean.slice(4))));
+  throw new Error("not a code");
+}
+function backupAge(){ try{ const t=+localStorage.getItem(KEY+"-copied"); return t?Math.floor((Date.now()-t)/864e5):null; }catch(e){ return null; } }
+function showLastCopied(){ const a=backupAge(); el("lastCopied").textContent = a===null?"Never copied yet": a===0?"Last copied today": `Last copied ${a} day${a===1?"":"s"} ago`; }
+function codeMsg(txt,cls){ el("codeMsg").textContent=txt; el("codeMsg").className="hint "+(cls||""); }
+el("copyCode").onclick=async()=>{
+  saveFields(); const code=await makeCode();
+  el("codeBox").value=code;
+  let copied=false;
+  try{ await navigator.clipboard.writeText(code); copied=true; }catch(e){}
+  if(!copied){ el("codeBox").focus(); el("codeBox").select(); try{ copied=document.execCommand("copy"); }catch(e){} }
+  try{ localStorage.setItem(KEY+"-copied",Date.now()); }catch(e){}
+  showLastCopied();
+  if(copied){ codeMsg(`✓ Copied! (${code.length.toLocaleString()} characters) Paste it into your notes or an email to yourself.`,"ok"); toast("💎","Progress code copied!"); }
+  else codeMsg("Your code is in the box above. Select it all and copy it.","");
+};
+el("loadCode").onclick=async()=>{
+  const b=el("loadCode"), text=el("codeBox").value;
+  if(!text.trim()) return codeMsg("Paste a progress code into the box first.","bad");
+  let s; try{ s=await readCode(text); if(!s||!s.days) throw 0; }catch(e){ return codeMsg("That code didn't work. Make sure you copied the whole thing, starting with DQ.","bad"); }
+  if(!b.dataset.armed){
+    const n=PLAN.filter((_,i)=>{ const d=s.days[i]; return d&&PLAN[i].k.every((_,j)=>d.tasks&&d.tasks[j]); }).length;
+    b.dataset.armed=1; b.textContent=`Tap again to load (${n} days done, ${(s.errors||[]).length} ledger entries)`;
+    codeMsg("This replaces the progress currently on this device.","");
+    setTimeout(()=>{ if(b.dataset.armed){ delete b.dataset.armed; b.textContent="Load this code"; } },6000);
+    return;
+  }
+  delete b.dataset.armed; b.textContent="Load this code";
+  state=Object.assign(blank(),s); if(!AVATARS.includes(state.avatar)) state.avatar="👑";
+  checkBadges(true); persist(); render(); openSettings();
+  codeMsg("✓ Progress loaded. Welcome back!","ok"); toast("✅","Progress loaded!"); confetti(90);
+};
+const closeSettings=()=>el("setScrim").classList.remove("open");
+el("openSettings").onclick=openSettings; el("xSet").onclick=closeSettings;
+el("setScrim").onclick=e=>{ if(e.target.id==="setScrim") closeSettings(); };
+el("name").oninput=e=>{ state.name=e.target.value; persist(); renderHero(); };
+el("startDate").onchange=e=>{ if(e.target.value){ state.start=e.target.value; commit(); } };
+el("target").onchange=e=>{ state.target=e.target.value; commit(); };
+el("exportBtn").onclick=()=>{ const a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:"application/json"})); a.download="diamond-quest-progress.json"; a.click(); };
+el("importBtn").onclick=()=>el("importFile").click();
+el("importFile").onchange=e=>{ const f=e.target.files[0]; if(!f) return;
+  f.text().then(t=>{ try{ const s=JSON.parse(t); if(s.days){ state=Object.assign(blank(),s); commit(); openSettings(); toast("✅","Progress imported!"); } }catch(err){ toast("⚠️","That file didn't look right."); } }); };
+el("resetBtn").onclick=()=>{ const b=el("resetBtn");
+  if(b.dataset.armed){ state=blank(); commit(); openSettings(); b.textContent="🗑️ Reset"; delete b.dataset.armed; toast("🌸","A fresh start!"); }
+  else { b.dataset.armed=1; b.textContent="Tap again to erase everything"; setTimeout(()=>{ b.textContent="🗑️ Reset"; delete b.dataset.armed; },3000); } };
+
+document.addEventListener("keydown",e=>{ if(e.key!=="Escape") return;
+  if(el("errScrim").classList.contains("open")) return closeErr();
+  if(el("scrim").classList.contains("open")) return closeDay(); closeSettings(); });
+let rz; addEventListener("resize",()=>{ clearTimeout(rz); rz=setTimeout(renderMap,120); });
+
+checkBadges(true); persist(); render();
+(function backupNudge(){
+  const any=PLAN.some((_,i)=>doneCount(i)>0)||state.errors.length; const age=backupAge();
+  if(any && (age===null||age>=3)) setTimeout(()=>toast("🔐", age===null?"Tip: back up your progress in Settings → Copy my progress code.":`${age} days since your last backup. Copy your code in Settings.`),1500);
+})();
+</script>
+</body>
+</html>
